@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block index %}
+        <!--== 1. Carousel ==-->
+        {% include 'carousel.html' %}
+        <!--== 2. About us ==-->
+        <section id="about" class="about">
+            <img src="{% static 'images/icons/about_color.png' %}" class="img-responsive section-icon hidden-sm hidden-xs">
+            <div class="wrapper">
+                <div class="container-fluid">
+                    <div class="row dis-table">
+                        <div class="hidden-xs col-sm-6 section-bg about-bg dis-table-cell">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 dis-table-cell">
+                            <div class="section-content">
+                                <h2 class="section-content-title">О нас</h2>
+                                <p class="section-content-para">
+                                    Концепция франшизы ресторана итальянской кухни Mamma's Kitchen – это меню традиционных блюд из разных уголков Италии, приготовление по истинным рецептам на открытом огне, в дровяной печи. Именно в сети Mamma's Kitchen можно попробовать настоящую итальянскую кухню без посещения этой солнечной страны.
+                                </p>
+                                <p class="section-content-para">
+                                    Бренд Mamma's Kitchen существует с 1998 г., одним из первых стал пропагандировать качественную еду из натуральных продуктов свежее дождевой росы. Использование традиционных рецептов выводит рестораны на принципиально другой, высокий уровень.
+                                </p>
+                            </div> <!-- /.section-content -->
+                        </div>
+                    </div> <!-- /.row -->
+                </div> <!-- /.container-fluid -->
+            </div> <!-- /.wrapper -->
+        </section> <!-- /#about -->
+
+        <!--==  3. Menu Pricing  ==-->
+        {% include 'menu.html' %}
+
+{% endblock %}

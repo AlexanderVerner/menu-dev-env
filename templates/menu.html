@@ -1,0 +1,63 @@
+{% load static %}
+<section id="pricing" class="pricing">
+            <div id="w">
+                <div class="pricing-filter">
+                    <div class="pricing-filter-wrapper">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="section-header">
+                                        <h2 class="pricing-title">Меню ресторана</h2>
+                                        <ul id="filter-list" class="clearfix">
+                                            <li class="filter" data-filter="all">Все</li>
+                                            <li class="filter" data-filter=".salads">Салаты</li>
+                                            <li class="filter" data-filter=".soup">Супы</li>
+                                            <li class="filter" data-filter=".hotter">Горячее</li>
+                                            <li class="filter" data-filter=".grill">Гриль</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                     <form action="{% url 'checkout' %}" method="post">
+                         {% csrf_token %}
+                        <div class="col-md-10 col-md-offset-1">
+                            <ul id="menu-pricing" class="menu-price">
+                                {% for menu_item in menu_list %}
+                                <li class="item {{ menu_item.menu_category }}">
+                                    <a href="#">
+                                        <img src="{{ menu_item.menu_img.url }}" class="img-responsive" alt="Food" >
+                                        <div class="menu-desc text-center">
+                                            <span>
+                                                <h3>{{ menu_item.menu_title }}</h3>
+                                                {{ menu_item.menu_ingredients }} <br>
+                                                Аллергены: {{ menu_item.menu_allergens }} <br>
+                                                Пищевая ценность: {{ menu_item.menu_kkal }} Ккал
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <div>
+                                        <h2 class="white"> <input type="checkbox" name="checks" value="{{ menu_item.id }}" /> {{ menu_item.menu_price }} руб.</h2>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            <div class="col-md-12 col-sm-12">
+                                <button type="submit" id="submit" name="submit" class="btn btn-reservation">
+                                    <span><i class="fa fa-check-circle-o"></i></span>Посчитать заказ!</button>
+                            </div>
+                            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+                                    <div class="text-center">
+                                        <br>
+                                    </div>
+                            </div>
+                        </div>
+                     </form>
+                    </div>
+                </div>
+            </div>
+        </section>
