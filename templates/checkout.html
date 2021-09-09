@@ -26,25 +26,21 @@
     </tr>
   </thead>
   <tbody>
-  {% if flag == True %}
+  {% if flag %}
     {% for el in checks_list %}
     <tr>
-      <th scope="row">{{ checks_list.id }}</th>
-      <td>{{ checks_list.menu_title }}</td>
-      <td>{{ checks_list.menu_allergens }}</td>
-      <td>{{ checks_list.menu_price }}</td>
+      <th scope="row">{{ el.id }}</th>
+      <td>{{ el.menu_title }}</td>
+      <td>{{ el.menu_allergens }}</td>
+      <td>{{ el.menu_price }}</td>
     </tr>
     {% endfor %}
-  {% else %}
-    <tr>
-      <th scope="row">{{ checks_list.id }}</th>
-      <td>{{ checks_list.menu_title }}</td>
-      <td>{{ checks_list.menu_allergens }}</td>
-      <td>{{ checks_list.menu_price }}</td>
-    </tr>
-  {% endif %}
   </tbody>
 </table>
+    {% else %}
+      <h3 align="center">Сначала необходимо выбрать блюда!</h3>
+      {% endif %}
+    <h2 align="center">Сумма заказа: {{ summ }}</h2>
     </div>
 <div class="col-md-12 col-sm-12">
     <a href="{% url 'home' %}">
