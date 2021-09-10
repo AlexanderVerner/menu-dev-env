@@ -154,3 +154,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
+
+API_TOKEN = 'secret'
